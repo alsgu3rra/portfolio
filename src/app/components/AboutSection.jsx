@@ -5,16 +5,31 @@ import TabButton from "./TabButton";
 
 const TAB_DATA = [
   {
-    title: "Skills",
-    id: "skills",
+    title: "backend",
+    id: "backend",
     content: (
       <ul className="list-disc pl-2">
         <li>Node.js</li>
-        <li>Express</li>
-        <li>PostgreSQL</li>
-        <li>Sequelize</li>
+        <li>Express.js</li>
+        <li>Nest.js</li>
+        <li>Fastfy.js</li>
         <li>JavaScript</li>
-        <li>React</li>
+        <li>TypeScript</li>
+        <li>Python</li>
+      </ul>
+    ),
+  },
+  {
+    title: "frontend",
+    id: "frontend",
+    content: (
+      <ul className="list-disc pl-2">
+        <li>Bootstrap</li>
+        <li>React.js</li>
+        <li>Next.js</li>
+        <li>Html/Css/Scss</li>
+        <li>Angular</li>
+        <li>Tailwind Css</li>
       </ul>
     ),
   },
@@ -33,7 +48,7 @@ const TAB_DATA = [
     id: "certifications",
     content: (
       <ul className="list-disc pl-2">
-        <li>AWS Cloud Practitioner</li>
+        <li>Computação em Nuvem com AWS</li>
         <li>Google Professional Cloud Developer</li>
       </ul>
     ),
@@ -41,7 +56,7 @@ const TAB_DATA = [
 ];
 
 const AboutSection = () => {
-  const [tab, setTab] = useState("skills");
+  const [tab, setTab] = useState("backend");
   const [isPending, startTransition] = useTransition();
 
   const handleTabChange = (id) => {
@@ -55,7 +70,7 @@ const AboutSection = () => {
       <div className="md:grid md:grid-cols-2 gap-8 items-center py-8 px-4 xl:gap-16 sm:py-16 xl:px-16">
         <Image src="/images/about-image.png" width={500} height={500} />
         <div className="mt-4 md:mt-0 text-left flex flex-col h-full">
-          <h2 className="text-4xl font-bold text-white mb-4">About Me</h2>
+          <h2 className="text-4xl font-bold text-white mb-4">Sobre Mim</h2>
           <p className="text-base lg:text-lg">
             I am a full stack web developer with a passion for creating
             interactive and responsive web applications. I have experience
@@ -65,26 +80,33 @@ const AboutSection = () => {
             I am excited to work with others to create amazing applications.
           </p>
           <div className="flex flex-row justify-start mt-8">
-            <TabButton
-              selectTab={() => handleTabChange("skills")}
-              active={tab === "skills"}
+          <TabButton
+              selectTab={() => handleTabChange("backend")}
+              active={tab === "backend"}
             >
               {" "}
-              Skills{" "}
+              Back-End{" "}
+            </TabButton>
+            <TabButton
+              selectTab={() => handleTabChange("frontend")}
+              active={tab === "frontend"}
+            >
+              {" "}
+              Front-End{" "}
             </TabButton>
             <TabButton
               selectTab={() => handleTabChange("education")}
               active={tab === "education"}
             >
               {" "}
-              Education{" "}
+              Educação{" "}
             </TabButton>
             <TabButton
               selectTab={() => handleTabChange("certifications")}
               active={tab === "certifications"}
             >
               {" "}
-              Certifications{" "}
+              Certificados{" "}
             </TabButton>
           </div>
           <div className="mt-8">
